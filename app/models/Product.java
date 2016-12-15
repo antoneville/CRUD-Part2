@@ -3,7 +3,7 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
-import com.avaje.ebean.Model;
+import com.avaje.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
@@ -20,6 +20,9 @@ public class Product extends Model {
     @Constraints.Required
     private String name;
 
+   // @ManyToOne
+    private Category category;
+
     @Constraints.Required
     private String description;
 
@@ -34,9 +37,10 @@ public class Product extends Model {
     }
 
     // Constructor to initialise object
-    public  Product(Long id, String name, String description, int stock, double price) {
+    public  Product(Long id, String name, Category category, String description, int stock, double price) {
         this.id = id;
         this.name = name;
+        this.category = category;
         this.description = description;
         this.stock = stock;
         this.price = price;
@@ -90,4 +94,11 @@ public class Product extends Model {
         this.price = price;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
