@@ -55,12 +55,13 @@ public class Product extends Model {
         return Product.find.all();
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
